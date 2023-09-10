@@ -1,13 +1,12 @@
 /***************************************************************************
-* File Name: Buttons.h
-* Processor/Platform: PwFusion R3aktor M0 (tested)
-* Development Environment: Arduino 2.1.1
+* File Name: PwFusion_Buttons_example.ino
+* Processor/Platform: R3aktor (tested)
+* Development Environment: Arduino 2.2.1
 *
-* Designed to simplify the integration of the PwFusion I2C Encoder board
-* Device (IFB-40003)
-*   ---> <Insert Link>
+* Designed for use with Playing With Fusion I2C Buttons
+* interface board: IFB-40003
 *
-* Copyright � 2023 Playing With Fusion, Inc.
+* Copyright © 2015-18 Playing With Fusion, Inc.
 * SOFTWARE LICENSE AGREEMENT: This code is released under the MIT License.
 *
 * Permission is hereby granted, free of charge, to any person obtaining a
@@ -29,32 +28,43 @@
 * DEALINGS IN THE SOFTWARE.
 * **************************************************************************
 * REVISION HISTORY:
-* Author		    Date		    Comments
-* N. Johnson    2023Aug29   Original version
+* Author		  Date	    Comments
+* N. Johnson  2023Aug10 Original Version
 *
 * Playing With Fusion, Inc. invests time and resources developing open-source
 * code. Please support Playing With Fusion and continued open-source
 * development by buying products from Playing With Fusion!
+* **************************************************************************
+* ADDITIONAL NOTES:
+* This file contains functions to initialize and run a Playing With Fusion R3aktor in
+* order to communicate with the I2C Buttons board. Funcionality is as described below:
+*	- Configure R3aktor to receive information from the I2C Buttons board
+*	- Broadcast results to COM port
+*  Circuit: (see Schematic.png)
+*    R3aktor     -->  I2C Buttons
+*    Qwiic pins  -->  Qwiic pins
 ***************************************************************************/
-#ifndef Buttons_h
-#define Buttons_h
 
-#include "Arduino.h"
-#include "DataTransfer.h"
+#include <PwFusion_Buttons.h>
 
-class Buttons {
+// Define address for the i2c buttons
+uint8_t ADR_BTN = 0x05;
 
-  private:
-    uint8_t _adr;
-    DataTransfer* transfer;
+// Create a new button object
+Buttons btn;
 
-    uint8_t reg_BTN = 0x00;
-    int _numData = 1;
+void setup() {
+  Serial.begin(9600);
 
-  public:
-    Buttons(uint8_t adr);
-    int getBtn();
+  // Start the button object and pass in the i2c address
+  btn.begin(ADR_BTN);
+}
 
-};
+void loop() {
 
-#endif
+  // Print out the value of the buttons
+  Serial.print("Button:  ");
+  Serial.println(btn.getBtn());
+  delay(10);
+
+}
