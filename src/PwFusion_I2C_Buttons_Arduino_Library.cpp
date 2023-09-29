@@ -1,5 +1,5 @@
 /***************************************************************************
-* File Name: PwFusion_Buttons.cpp
+* File Name: PwFusion_I2C_Buttons_Arduino_Library.cpp
 * Processor/Platform: PwFusion R3aktor M0 (tested)
 * Development Environment: Arduino 2.1.1
 *
@@ -37,7 +37,7 @@
 * development by buying products from Playing With Fusion!
 ***************************************************************************/
 
-#include "PwFusion_Buttons.h"
+#include "PwFusion_I2C_Buttons_Arduino_Library.h"
 #include "Arduino.h"
 #include <PwFusion_Data_Transfer.h>
 

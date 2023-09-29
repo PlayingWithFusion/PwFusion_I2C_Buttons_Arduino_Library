@@ -45,7 +45,7 @@
 *    Qwiic pins  -->  Qwiic pins
 ***************************************************************************/
 
-#include <PwFusion_Buttons.h>
+#include <PwFusion_I2C_Buttons_Arduino_Library.h>
 
 // Define address for the i2c buttons
 uint8_t ADR_BTN = 0x05;
