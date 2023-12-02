@@ -56,7 +56,10 @@
 #include <PwFusion_I2C_Buttons_Arduino_Library.h>
 
 // Define address for the i2c buttons
-uint8_t ADR_BTN = 0x05;
+uint8_t ADR_BTN = 0x09;
+//uint8_t ADR_BTN = 0x10;
+//uint8_t ADR_BTN = 0x11;
+//uint8_t ADR_BTN = 0x12;
 
 // Define pins for the 5 leds
 int l1 = 5;

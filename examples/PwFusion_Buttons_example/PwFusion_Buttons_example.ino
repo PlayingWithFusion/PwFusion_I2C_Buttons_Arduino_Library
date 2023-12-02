@@ -48,7 +48,11 @@
 #include <PwFusion_I2C_Buttons_Arduino_Library.h>
 
 // Define address for the i2c buttons
-uint8_t ADR_BTN = 0x05;
+uint8_t ADR_BTN = 0x09;
+//uint8_t ADR_BTN = 0x10;
+//uint8_t ADR_BTN = 0x11;
+//uint8_t ADR_BTN = 0x12;
+
 
 // Create a new button object
 Buttons btn;
